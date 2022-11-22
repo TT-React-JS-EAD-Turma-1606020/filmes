@@ -3,3 +3,27 @@ body {
   margin: 0;
   padding: 0;
 }
+
+section {
+  margin: 0 auto;
+  max-width: 1000px;
+  margin-top: 2rem;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+  margin-bottom: 5rem;
+}
+
+.search-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+}

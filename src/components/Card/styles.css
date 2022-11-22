@@ -1,0 +1,21 @@
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-poster {
+  width: 100%;
+  margin-bottom: auto;
+}
+
+.card-title {
+  margin-top: 0.5rem;
+  font-size: 14px;
+  text-align: center;
+}
+
+.card-year {
+  margin-top: 0.25rem;
+  font-size: 14px;
+}
