@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
+import { getMoviesApi } from './api/movie';
 import './App.css';
 import { Button } from './components/Button';
 import { Card } from './components/Card';
 import { Header } from './components/Header';
+import { Input } from './components/Input';
 
-// TODO: Fazer botão dinâmico
 function App() {
   const [movies, setMovies] = useState([])
   const [search, setSearch] = useState('')
@@ -16,9 +17,7 @@ function App() {
   }
 
   const getMovies = async (movie, movieYear) => {
-    const response = await fetch(`https://www.omdbapi.com/?apikey=3295fc54&s=${movie || 'Hulk'}&y=${movieYear || ''}`)
-
-    const data = await response.json()
+    const data = await getMoviesApi(movie, movieYear)
 
     if (data?.Search) {
       setMovies(data.Search)
@@ -47,36 +46,29 @@ function App() {
 
       <section>
         <div className='search-container'>
-          <div className='inputContainer'>
-            <label htmlFor="search">Busca</label>
+          <Input
+            name='search'
+            label='Busca'
+            placeholder='Nome do filme'
+            value={search}
+            onChange={(event) => {
+              setSearch(event.target.value)
+            }}
+          />
 
-            <input
-              name='search'
-              value={search}
-              onChange={(event) => {
-                setSearch(event.target.value)
-              }}
-            />
-          </div>
-
-          <div className='inputContainer'>
-            <label htmlFor="year">Ano</label>
-            <input
-              name='year'
-              value={year}
-              onChange={(event) => {
-                setYear(event.target.value)
-              }}
-            />
-          </div>
-
-
-          {/* <button onClick={handleClickSearch}>Buscar</button> */}
+          <Input
+            label='Ano'
+            name='year'
+            value={year}
+            placeholder='Ano do filme'
+            onChange={(event) => {
+              setYear(event.target.value)
+            }}
+          />
 
           <Button onClick={handleClickSearch} text='Buscar' />
 
-          <Button onClick={handleClickClear} text='Limpar filtros' />
-
+          <Button onClick={handleClickClear} text='Limpar filtros' secondary />
         </div>
 
         <div className='container'>

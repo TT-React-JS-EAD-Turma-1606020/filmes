@@ -1,4 +1,15 @@
 .header {
-  background-color: rgb(209, 209, 209);
+  background-color: black;
   padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.logo {
+  width: 30px;
 }

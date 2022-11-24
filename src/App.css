@@ -2,6 +2,8 @@ body {
   font-family: sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #141414;
+  color: white;
 }
 
 section {
@@ -19,11 +21,7 @@ section {
 
 .search-container {
   display: flex;
+  align-items: flex-end;
   gap: 1rem;
   margin-bottom: 1rem;
-}
-
-.inputContainer {
-  display: flex;
-  flex-direction: column;
 }

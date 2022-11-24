@@ -1,5 +1,9 @@
-export const Button = ({ onClick, text }) => {
+import './styles.css'
+
+export const Button = ({ onClick, text, secondary }) => {
   return (
-    <button onClick={onClick}>{text}</button>
+    <button className={`button ${secondary ? 'button-secondary' : 'button-primary'}`} onClick={onClick}>
+      {text}
+    </button>
   )
 }
