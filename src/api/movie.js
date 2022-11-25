@@ -1,7 +1,16 @@
+import { api } from './'
+
+// https://www.omdbapi.com/?s=Hulk&apikey=3295fc54
+// baseURL + parâmetro da função (url) + & + parâmetro da instancia 
+
 export const getMoviesApi = async (movie, movieYear) => {
-  const response = await fetch(`https://www.omdbapi.com/?apikey=3295fc54&s=${movie?.trim() || 'Hulk'}&y=${movieYear || ''}`)
+  const response = await api.get(`?s=${movie?.trim() || 'Hulk'}&y=${movieYear || ''}`)
 
-  const data = await response.json()
+  return response.data
+}
 
-  return data
+export const getMovieDetailsApi = async (movieId) => {
+  const response = await api.get(`?plot=full&i=${movieId}`)
+
+  return response.data
 }

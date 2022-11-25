@@ -11,17 +11,3 @@ section {
   max-width: 1000px;
   margin-top: 2rem;
 }
-
-.container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 2rem;
-  margin-bottom: 5rem;
-}
-
-.search-container {
-  display: flex;
-  align-items: flex-end;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}

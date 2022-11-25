@@ -18,6 +18,17 @@
 [x] - Separar o componente de Input
 [x] - Fazer um componente utilizar outro componente
 
+# Aula 6
+
+- Criação da pasta Pages
+- Separação de páginas e estilos das páginas
+- Criamos uma página somente para detalhes de filme, uma página dinâmica
+- Adicionamos uma biblioteca no projeto de filmes: Axios!
+
+# Links uteis
+
+https://axios-http.com/ptbr/docs/intro
+
 #d7262d
 #333333
 #141414
