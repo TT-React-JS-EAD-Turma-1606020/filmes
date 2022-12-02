@@ -32,3 +32,30 @@ https://axios-http.com/ptbr/docs/intro
 #d7262d
 #333333
 #141414
+
+- Base URL: https://6348cc5ea59874146b110e79.mockapi.io
+
+- Obter a listagem de posts:
+
+  - Método HTTP: GET
+  - Endpoint: /posts
+  - Resposta:
+    [
+    {
+    "createdAt": "2022-11-25T21:50:18.179Z",
+    "description": "Aqui está a descrição",
+    "title": "Aqui está o título",
+    "author": "Luciel",
+    "id": "1"
+    }
+    ]
+
+- Cadastrar um post:
+  - Método HTTP: POST
+  - Endpoint: /posts
+  - Corpo do JSON que precisa ser enviado:
+    {
+    "description": "Aqui está a descrição",
+    "title": "Aqui está o título",
+    "author": "Luciel"
+    }

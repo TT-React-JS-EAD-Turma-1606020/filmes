@@ -8,15 +8,16 @@ import './styles.css';
 export function Home() {
   const [movies, setMovies] = useState([])
   const [search, setSearch] = useState('')
-  const [year, setYear] = useState('')
+  const [year, setYear] = useState('2010')
+  const [page, setPage] = useState(1)
 
   const clearFilters = () => {
     setSearch('')
     setYear('')
   }
 
-  const getMovies = async (movie, movieYear) => {
-    const data = await getMoviesApi(movie, movieYear)
+  const getMovies = async (movie, movieYear, batatta) => {
+    const data = await getMoviesApi(movie, movieYear, batatta)
 
     if (data?.Search) {
       setMovies(data.Search)
@@ -27,17 +28,27 @@ export function Home() {
   }
 
   const handleClickSearch = () => {
-    getMovies(search, year)
+    getMovies(search, year, 1)
+    setPage(1)
   }
 
   const handleClickClear = () => {
     clearFilters()
+    setPage(1)
     getMovies()
   }
 
+  const handleNextPage = () => {
+    setPage(page + 1)
+  }
+
+  const handlePrevPage = () => {
+    setPage(page - 1)
+  }
+
   useEffect(() => {
-    getMovies()
-  }, [])
+    getMovies(search, year, page)
+  }, [page])
 
   return (
     <div>
@@ -71,11 +82,20 @@ export function Home() {
         <div className='container'>
           {movies.map((movie, index) => {
             return (
-              <Card poster={movie.Poster} title={movie.Title} year={movie.Year} />
+              <Card poster={movie.Poster} title={movie.Title} year={movie.Year} id={movie.imdbID} />
             )
           })}
         </div>
       </section>
+
+      <div className='footer'>
+        <Button text='Anterior' secondary onClick={handlePrevPage} />
+
+
+        <strong>{page}</strong>
+
+        <Button text='Próximo' secondary onClick={handleNextPage} />
+      </div>
     </div>
   );
 }

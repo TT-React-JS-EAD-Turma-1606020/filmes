@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react"
+import { useNavigate, useParams } from "react-router-dom"
 import { getMovieDetailsApi } from "../../api/movie"
+import { Button } from "../../components/Button"
 import { Image } from "../../components/Image"
 import './styles.css'
 
 export const Details = () => {
-  const [id, setId] = useState()
   const [details, setDetails] = useState()
+  const { id } = useParams()
+  const navigate = useNavigate()
 
   const getMovieDetails = async () => {
     const data = await getMovieDetailsApi(id)
@@ -14,17 +17,13 @@ export const Details = () => {
       setDetails(data)
     }
   }
+  const handleBack = () => {
+    navigate(-1)
+  }
 
   useEffect(() => {
-    if (id) {
-      getMovieDetails()
-    } else {
-      // eslint-disable-next-line no-restricted-globals
-      const arr = location.pathname.split('/')
-
-      setId(arr[2])
-    }
-  }, [id])
+    getMovieDetails()
+  }, [])
 
   if (!details) {
     return (
@@ -52,6 +51,8 @@ export const Details = () => {
 
               <li>Pontuação IMDB: {details.imdbRating} - {details.imdbVotes}</li>
             </ul>
+
+            <Button text='Voltar para a listagem' secondary onClick={handleBack} />
           </div>
         </div>
 

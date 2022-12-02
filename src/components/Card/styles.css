@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
 .card-poster {
@@ -18,4 +20,8 @@
 .card-year {
   margin-top: 0.25rem;
   font-size: 14px;
+}
+
+.card-container:active {
+  filter: brightness(50%);
 }
